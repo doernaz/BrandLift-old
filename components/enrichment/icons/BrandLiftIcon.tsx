@@ -1,0 +1,19 @@
+import React from 'react';
+
+export const BrandLiftIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            {...props}
+        >
+            <path d="M3 17l6-6 4 4 8-8" />
+            <path d="M17 3h4v4" />
+        </svg>
+    );
+};

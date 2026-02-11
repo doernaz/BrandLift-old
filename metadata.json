@@ -1,0 +1,5 @@
+{
+  "name": "BrandLift Command Center",
+  "description": "An application to analyze a website's HTML, generate a technical SEO injection package using Gemini, and preview the results in a non-intrusive overlay.",
+  "requestFramePermissions": []
+}
