@@ -1,6 +1,14 @@
 import React from 'react';
 import { SeoAnalysisResult } from '../types';
 import { SparklesIcon, ChartBarIcon, ServerIcon, UserGroupIcon, GlobeAltIcon, DocumentTextIcon, CogIcon } from '../components/icons/Icons';
+import { LeadEnrichmentView } from './LeadEnrichmentView';
+// import { SubsiteBuilder } from './builder/SubsiteBuilder'; // Stored for rewrite
+import { SeoAuditResults } from './dashboard/SeoAuditResults';
+import { LeadFilters } from './enrichment/LeadFilters';
+import { LeadResultFeed } from './enrichment/LeadResultFeed';
+import { searchLeads } from '../services/placesService';
+import { getEstimatedMarketSize } from '../services/searchEngine';
+import { Place, FilterOptions } from '../types';
 import { HealthSentinel } from './dashboard/HealthSentinel';
 import { MetricsHud } from './dashboard/MetricsHud'; // We'll keep this available if needed, but user wants the 3 rotating indicators
 import { MetricStrip } from './dashboard/MetricStrip'; // The 3 rotating indicators
@@ -8,9 +16,9 @@ import { ClientMap } from './dashboard/ClientMap'; // The requested map
 import { BlueprintManager } from './dashboard/BlueprintManager';
 import { PricingConfigurator } from './dashboard/PricingConfigurator';
 import { AddonManager } from './dashboard/AddonManager';
+import { sessionStore } from '../services/sessionStore';
 
 // Import All Tiles
-import { WalkTheFlowTile } from './dashboard/tiles/WalkTheFlowTile';
 import { SandboxManagerTile } from './dashboard/tiles/SandboxManagerTile';
 import { ClientManagementTile } from './dashboard/tiles/ClientManagementTile';
 import { FinancialSentinelTile } from './dashboard/tiles/FinancialSentinelTile';
@@ -29,12 +37,18 @@ import { ChatbotDeployerTile } from './dashboard/tiles/ChatbotDeployerTile';
 import { CapabilitySyncTile } from './dashboard/tiles/CapabilitySyncTile';
 import { BundleArchitectTile } from './dashboard/tiles/BundleArchitectTile';
 import { StorefrontPreviewTile } from './dashboard/tiles/StorefrontPreviewTile';
-import { VariantConfigTile } from './dashboard/tiles/VariantConfigTile';
+import { VariantConfigTile, VariantConfig } from './dashboard/tiles/VariantConfigTile';
 import { AddonPricingTile } from './dashboard/tiles/AddonPricingTile';
+import { AuditorWorkflowTile } from './dashboard/AuditorWorkflowTile';
 
 interface DashboardProps {
     onNavigate: (page: any) => void;
     recentSeoScore: number | null;
+    analysisResult?: SeoAnalysisResult | null;
+    targetUrl?: string; // for urlValue
+    onReimagine?: (target: any) => void;
+    activePanel: 'flow' | 'enrichment' | 'builder';
+    setActivePanel: (panel: 'flow' | 'enrichment' | 'builder') => void;
 }
 
 const AppTile = ({ title, description, icon: Icon, onClick, active }: any) => (
@@ -66,7 +80,119 @@ const AppTile = ({ title, description, icon: Icon, onClick, active }: any) => (
     </button>
 );
 
-export default function Dashboard({ onNavigate, recentSeoScore }: DashboardProps) {
+export default function Dashboard({ onNavigate, recentSeoScore, analysisResult, targetUrl, onReimagine, activePanel, setActivePanel }: DashboardProps) {
+    const [filters, setFilters] = React.useState<FilterOptions>({
+        industry: 'HVAC',
+        state: 'AZ',
+        city: 'Phoenix',
+        websiteStatus: 'no_website',
+        deepScan: false,
+        maxResults: 10,
+    });
+    const [leads, setLeads] = React.useState<Place[]>([]);
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [error, setError] = React.useState<string | null>(null);
+    const [hasSearched, setHasSearched] = React.useState(false);
+    const [marketSize, setMarketSize] = React.useState<number | null>(null);
+    const [searchStats, setSearchStats] = React.useState<{ scanned: number, noWebsite: number } | null>(null);
+    const [reimaginingId, setReimaginingId] = React.useState<string | null>(null);
+    const [reimagineSuccessId, setReimagineSuccessId] = React.useState<string | null>(null);
+    const [selectedLead, setSelectedLead] = React.useState<Place | null>(null);
+    const [antigravityReport, setAntigravityReport] = React.useState<any>(null); // New State
+
+    // Config state
+    const [variantConfig, setVariantConfig] = React.useState<VariantConfig>(() =>
+        sessionStore.getVariantConfig() || { count: 3, themes: ['modern_minimal', 'dark_saas', 'corporate_trust'] }
+    );
+
+    const fetchLeads = React.useCallback(async () => {
+        setActivePanel('enrichment'); // Force view back to results
+        setHasSearched(true);
+        setIsLoading(true);
+        setError(null);
+        setLeads([]);
+        setMarketSize(null);
+        setSearchStats(null);
+        setAntigravityReport(null); // Clear previous reports
+        try {
+            const [data, size] = await Promise.all([
+                searchLeads(filters),
+                getEstimatedMarketSize(filters.industry, filters.city, filters.state)
+            ]);
+            setLeads(data.leads);
+            setSearchStats(data.stats);
+            setMarketSize(size);
+        } catch (err) {
+            setError((err as Error).message);
+            console.error(err);
+        } finally {
+            setIsLoading(false);
+        }
+    }, [filters]);
+
+    const handleDashboardReimagine = async (target: string | Place) => {
+        let id = '';
+        if (typeof target === 'string') {
+            const found = leads.find(l => l.website === target);
+            if (found) id = found.id;
+        } else {
+            id = target.id;
+        }
+
+        if (id) {
+            setReimaginingId(id);
+            setReimagineSuccessId(null);
+            setAntigravityReport(null);
+
+            // Set selected lead for the builder
+            if (typeof target === 'string') {
+                // Already found 'found' above but scope issue. Let's re-find or optimize.
+                const found = leads.find(l => l.website === target);
+                if (found) setSelectedLead(found);
+            } else {
+                setSelectedLead(target);
+            }
+        }
+
+        try {
+            // ANTIGRAVITY EXECUTIVE TRIGGER
+            // "Retrieve the category and location from the result whic reimaged is selected"
+            const category = filters.industry;
+            const location = `${filters.city}, ${filters.state}`;
+
+            console.log(`[Antigravity] Selected Context: ${category} in ${location}`);
+            console.log(`[Antigravity] Initiating Master Command Sequence...`);
+
+            // Execute the Master Command in the background
+            // We do not await this to allow the UI to transition immediately to the builder view
+            fetch('/api/antigravity/execute', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ industry: category, location: location })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("[Antigravity] Mission Report:", data);
+                    setAntigravityReport(data); // Pass data to UI
+                })
+                .catch(err => console.error("[Antigravity] Protocol Failure:", err));
+
+            if (onReimagine) {
+                // Trigger the reimagine flow in App.tsx (which sets up builder state)
+                onReimagine(target);
+            }
+            setActivePanel('builder');
+        } catch (e) {
+            console.error("Reimagine failed", e);
+        } finally {
+            if (id) {
+                setReimaginingId(null);
+                setReimagineSuccessId(id);
+                setTimeout(() => setReimagineSuccessId(null), 3000);
+            }
+        }
+    };
+
     return (
         <div className="p-6 max-w-[1600px] mx-auto w-full space-y-8 animate-in fade-in duration-500">
 
@@ -99,36 +225,56 @@ export default function Dashboard({ onNavigate, recentSeoScore }: DashboardProps
                 <ClientMap />
             </section>
 
-            {/* 3. Active Workflow (Walk The Flow & Key Actions) */}
-            <section className="pt-8">
+            {/* 3. Active Workflow (Lead Search & Results) */}
+            <section className="pt-8 min-h-[800px]">
                 <div className="flex items-center gap-2 mb-4">
-                    <CogIcon className="w-5 h-5 text-cyan-500 animate-spin-slow" />
-                    <h2 className="text-sm font-bold text-slate-500 uppercase tracking-widest">Active Workflow</h2>
+                    <UserGroupIcon className="w-5 h-5 text-cyan-500" />
+                    <h2 className="text-sm font-bold text-slate-500 uppercase tracking-widest">Lead Enhancement & Generation</h2>
                 </div>
 
-                <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-                    {/* Key Actions (Left Side) */}
-                    <div className="grid grid-cols-1 gap-6 order-2 xl:order-1">
-                        <AppTile
-                            title="Lead Enrichment"
-                            description="Deep-dive business intelligence. Scrape, enrich, and qualify leads from Google Maps."
-                            icon={UserGroupIcon}
-                            onClick={() => onNavigate('enrichment')}
-                            active={true}
-                        />
-                        <AppTile
-                            title="Subsite Builder"
-                            description="Architecture studio for managing blueprints and deploying new variant themes."
-                            icon={SparklesIcon}
-                            onClick={() => onNavigate('builder')}
-                        />
+                <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 h-full">
+                    {/* Left Panel: Search (25%) */}
+                    <div className="xl:col-span-1 h-full min-h-[600px] border border-slate-800 rounded-xl overflow-hidden bg-slate-900/50 flex flex-col">
+                        <LeadFilters filters={filters} setFilters={setFilters} onSearch={fetchLeads} isLoading={isLoading} />
                     </div>
 
-                    {/* Walk The Flow Tile (Primary Visualizer - Right Side) */}
-                    <div className="xl:col-span-2 order-1 xl:order-2">
-                        <WalkTheFlowTile />
+                    {/* Right Panel: Results / Builder (75%) */}
+                    <div className="xl:col-span-3 h-full min-h-[600px] bg-slate-950/30 rounded-xl border border-slate-800/50 overflow-hidden relative">
+                        {activePanel === 'enrichment' && (
+                            <div className="h-full w-full absolute inset-0">
+                                <LeadResultFeed
+                                    leads={leads}
+                                    isLoading={isLoading}
+                                    error={error}
+                                    hasSearched={hasSearched}
+                                    marketSize={marketSize}
+                                    searchStats={searchStats}
+                                    onReimagine={handleDashboardReimagine}
+                                    reimaginingId={reimaginingId}
+                                    reimagineSuccessId={reimagineSuccessId}
+                                />
+                            </div>
+                        )}
+
+                        {activePanel === 'builder' && (
+                            <div className="h-full w-full absolute inset-0 overflow-y-auto custom-scrollbar bg-slate-950">
+                                <SeoAuditResults
+                                    analysisResults={analysisResult || null}
+                                    targetUrl={targetUrl}
+                                    selectedLead={selectedLead}
+                                    onBack={() => setActivePanel('enrichment')}
+                                    variantConfig={variantConfig}
+                                    antigravityReport={antigravityReport} // Pass the report
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
+            </section>
+
+            {/* 3.5. Auditor Workflow Module */}
+            <section className="pt-8 border-t border-slate-800/50">
+                <AuditorWorkflowTile />
             </section>
 
             {/* 4. Main Command Grid: All Functional Tiles */}
@@ -139,6 +285,7 @@ export default function Dashboard({ onNavigate, recentSeoScore }: DashboardProps
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+                    <VariantConfigTile config={variantConfig} setConfig={setVariantConfig} />
                     <SandboxManagerTile />
                     <BlueprintManager />
                     <HealthSentinel />
@@ -163,7 +310,6 @@ export default function Dashboard({ onNavigate, recentSeoScore }: DashboardProps
                     <CapabilitySyncTile />
                     <BundleArchitectTile />
                     <StorefrontPreviewTile />
-                    <VariantConfigTile />
                     <AddonPricingTile />
                 </div>
             </section>

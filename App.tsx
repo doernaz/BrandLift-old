@@ -58,6 +58,9 @@ export default function App() {
   const [isOverlayVisible, setIsOverlayVisible] = useState<boolean>(false);
   const [siteData, setSiteData] = useState<SiteData | null>(null);
 
+  // Dashboard Panel State (Controlled by App)
+  const [dashboardPanel, setDashboardPanel] = useState<'flow' | 'enrichment' | 'builder'>('enrichment');
+
   // Full Screen Preview State
   const [activeFullPreview, setActiveFullPreview] = useState<{ html: string; title: string } | null>(null);
 
@@ -95,7 +98,7 @@ export default function App() {
       const truncatedHtml = sanitizedHtml.substring(0, MAX_CONTENT_LENGTH);
 
       const generatedResult = await generateSeoPackage(truncatedHtml, analysisUrl);
-      setAnalysisResult(generatedResult);
+      setAnalysisResult({ ...generatedResult, siteData: data });
       setHtmlForPreview(htmlContent);
     } catch (err) {
       console.error(err);
@@ -135,9 +138,17 @@ export default function App() {
       // 2. Start Session (Virtual Mode)
       sessionStore.startReimagineSession({ virtualSource });
 
-      // 3. Skip performScan (SEO Scan) and go straight to dashboard
+      // 3. If target has a website, perform REAL Scan
+      if (target.website) {
+        setUrlValue(target.website);
+        console.log("[App] Target has website, initiating SEO Scan:", target.website);
+        performScan(target.website);
+      } else {
+        console.log("[App] Target has no website, using Virtual Source only.");
+      }
     }
 
+    setDashboardPanel('builder');
     // Navigate to Dashboard to see the "Walk the Flow" tile
     setCurrentApp('dashboard');
   }, [performScan]);
@@ -201,6 +212,12 @@ export default function App() {
           <Dashboard
             onNavigate={setCurrentApp}
             recentSeoScore={analysisResult?.originalScore || null}
+            analysisResult={analysisResult}
+            targetUrl={urlValue}
+            // Pass handleReimagine so Dashboard can trigger scans
+            onReimagine={handleReimagine}
+            activePanel={dashboardPanel}
+            setActivePanel={setDashboardPanel}
           />
         )}
 

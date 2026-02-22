@@ -58,6 +58,7 @@ export interface SeoVariant {
 export interface SeoAnalysisResult {
   originalScore: number;
   variants: SeoVariant[];
+  siteData?: SiteData;
 }
 
 export interface Review {
@@ -100,9 +101,10 @@ export interface FilterOptions {
   industry: string;
   state: string;
   city: string;
-  noWebsiteOnly: boolean;
+  websiteStatus: 'all' | 'has_website' | 'no_website';
   deepScan?: boolean; // Enable recursive multi-region scans
   maxResults: number;
+  goldMine?: boolean; // Automates discovery of high-LTV businesses
 }
 
 // --- 20i / Reseller Types ---

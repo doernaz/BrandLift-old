@@ -30,19 +30,38 @@ const THEMES = [
     { id: 'high_octane', name: 'High-Octane Sports' }
 ];
 
-export const VariantConfigTile = () => {
-    const [count, setCount] = useState(3);
-    const [selectedThemes, setSelectedThemes] = useState<string[]>(['modern_minimal', 'dark_saas', 'corporate_trust']);
+export interface VariantConfig {
+    count: number;
+    themes: string[];
+}
+
+interface VariantConfigTileProps {
+    config?: VariantConfig;
+    setConfig?: (config: VariantConfig) => void;
+}
+
+export const VariantConfigTile: React.FC<VariantConfigTileProps> = ({ config, setConfig }) => {
+    const [count, setCount] = useState(config?.count || 3);
+    const [selectedThemes, setSelectedThemes] = useState<string[]>(config?.themes || ['modern_minimal', 'dark_saas', 'corporate_trust']);
     const [saving, setSaving] = useState(false);
     const [msg, setMsg] = useState('');
 
+    // Sync from props if they change external to this component
     useEffect(() => {
-        const config = sessionStore.getVariantConfig();
         if (config) {
             setCount(config.count);
             setSelectedThemes(config.themes);
         }
-    }, []);
+    }, [config]);
+
+    useEffect(() => {
+        // Load initial if no props provided (legacy/standalone mode)
+        const saved = sessionStore.getVariantConfig();
+        if (saved && !config) {
+            setCount(saved.count);
+            setSelectedThemes(saved.themes);
+        }
+    }, [config]);
 
     const handleCountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = parseInt(e.target.value);
@@ -72,7 +91,9 @@ export const VariantConfigTile = () => {
     const handleSave = async () => {
         setSaving(true);
         try {
-            await sessionStore.updateVariantConfig({ count, themes: selectedThemes });
+            const newConfig = { count, themes: selectedThemes };
+            await sessionStore.updateVariantConfig(newConfig);
+            if (setConfig) setConfig(newConfig); // Notify parent
             setMsg('Configuration Saved');
             setTimeout(() => setMsg(''), 3000);
         } catch (e) { console.error(e); }

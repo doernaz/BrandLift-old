@@ -85,7 +85,7 @@ export const searchLeads = async (filters: FilterOptions): Promise<{ leads: Plac
     const currentNoWebsiteCount = allRawPlaces.filter((p: any) => !p.websiteUri).length;
 
     // If Deep Scan is requested, OR "No Website Only" yielded insufficient results
-    const shouldDeepScan = filters.deepScan || (filters.noWebsiteOnly && currentNoWebsiteCount < filters.maxResults);
+    const shouldDeepScan = filters.deepScan || (filters.websiteStatus === 'no_website' && currentNoWebsiteCount < filters.maxResults);
 
     if (shouldDeepScan) {
         console.log(`[Places] Deep Scan Triggered (Refining Search...)`);
@@ -137,50 +137,45 @@ export const searchLeads = async (filters: FilterOptions): Promise<{ leads: Plac
     // ENRICHMENT SETUP
     let leadsToProcess = leads;
 
-    if (filters.noWebsiteOnly) {
-        // Only enrich leads that STARTED without a website on Google Maps
-        leadsToProcess = leads.filter(l => !l.website);
+    // GOLD MINE LOGIC
+    if (filters.goldMine) {
+        console.log("[Places] Applying Gold Mine Heuristics...");
+        leadsToProcess = leads.filter(l => {
+            // Criteria 1: No Website (Digital Destitution)
+            const noWebsite = !l.website;
 
-        if (leadsToProcess.length === 0) {
-            // If we found NO leads without websites, just fall through (or throw?)
-            // We will just let the downstream logic handle filtering
+            // Criteria 2: Social Proof (Rating >= 4.2 & Reviews >= 15)
+            const strongSocial = (l.rating || 0) >= 4.2 && (l.userRatingCount || 0) >= 15;
+
+            return noWebsite && strongSocial;
+        });
+
+        // Criteria 3: Sort by "Annual Lost Opportunity"
+        // Formula: (Avg Job Value * Conversion Rate * Monthly Traffic) * 12
+        // For now, we estimate purely based on Review Count acting as a proxy for business volume
+        leadsToProcess.sort((a, b) => {
+            const scoreA = (a.userRatingCount || 0) * (a.rating || 0);
+            const scoreB = (b.userRatingCount || 0) * (b.rating || 0);
+            return scoreB - scoreA; // Descending
+        });
+
+    } else {
+        // Standard Filters
+        if (filters.websiteStatus === 'no_website') {
+            leadsToProcess = leads.filter(l => !l.website);
+        } else if (filters.websiteStatus === 'has_website') {
+            leadsToProcess = leads.filter(l => l.website);
         }
     }
 
     // ENRICHMENT EXECUTION
-    // Process all candidates found via Deep Scan that match the No Website filter.
-    // Or enrich ALL if no filter
-    const enrichedLeads = await enrichLeadsWithEmail(leadsToProcess); // Only enrich filtered subset for speed?
-
-    // Wait, if we only enrich a subset, what about the rest? 
-    // If filters.noWebsiteOnly is TRUE, we only return the subset.
-    // If FALSE, we return everything. 
-    // The original code only enriched 'leadsToProcess'.
-    // If 'noWebsiteOnly' is false, leadsToProcess = leads (all).
-
-    // Merging back might be needed if we want to return mixed results?
-    // But for now let's stick to the 5173 logic:
+    const enrichedLeads = await enrichLeadsWithEmail(leadsToProcess);
 
     // Calculate final stats
     const finalStats = {
         scanned: allRawPlaces.length,
         noWebsite: allRawPlaces.filter((p: any) => !p.websiteUri).length
     };
-
-    // POST-FILTER
-    if (filters.noWebsiteOnly) {
-        const strictResults = enrichedLeads.filter(l => !l.website);
-
-        if (strictResults.length === 0) {
-            // Just return empty array instead of throwing to avoid crashing UI
-            return { leads: [], stats: finalStats };
-        }
-
-        return {
-            leads: strictResults.slice(0, filters.maxResults),
-            stats: finalStats
-        };
-    }
 
     return {
         leads: enrichedLeads.slice(0, filters.maxResults),

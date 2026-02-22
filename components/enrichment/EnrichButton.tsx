@@ -11,10 +11,10 @@ export const EnrichButton: React.FC<{ leadId: string }> = ({ leadId }) => {
     return (
         <button
             onClick={handleEnrich}
-            className="flex items-center gap-1.5 text-xs font-roboto-mono bg-neutral-800 hover:bg-neutral-700 text-neutral-300 px-2 py-1 rounded-sm transition-colors"
+            className="flex items-center gap-1.5 text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white px-2.5 py-1.5 rounded-md transition-all border border-slate-700 hover:border-slate-600 shadow-sm"
             aria-label="Request email enrichment"
         >
-            <Zap size={14} className="text-yellow-400" />
+            <Zap size={14} className="text-yellow-500" />
             Enrich Email
         </button>
     );

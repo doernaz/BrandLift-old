@@ -1,0 +1,1498 @@
+[dotenv@17.2.4] injecting env (10) from .env.local -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[Firebase] Admin Initialized Successfully
+[dotenv@17.2.4] injecting env (0) from .env.local -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.4] injecting env (0) from .env.local -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.2.4] injecting env (0) from .env.local -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+Server running at http://localhost:3001
+[ManualShell] Executing for stayinsedona.com...
+DEBUG: Using 20i API Key (Base64'd): Y2UzM...
+[20i] Conflict handling: Found stale package for stayinsedona.com. Cleaning up...
+[20i] Deleting stale package ID: 3576415...
+[20i] Deletion command sent. Polling for removal (max 20s)...
+[20i] Package still exists (1/4). Waiting...
+[20i] Package still exists (2/4). Waiting...
+[20i] Package still exists (3/4). Waiting...
+[20i] Package still exists (4/4). Waiting...
+[20i] Cleanup failed or timed out. Switching to unique sandbox domain.
+[20i] Provisioning fallback domain (Conflict): stayinsedona-1771082100254.com
+DEBUG: Using 20i API Key (Base64'd): Y2UzM...
+DEBUG: Provision Response: {
+  "result": 3582419
+}
+DEBUG: Waiting 5s for 20i propagation...
+[20i] Triggering One-Click WordPress Install (Blueprint: 3574679) for 3582419...
+[20i] Blueprint Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Retrying with Standard WordPress Install (No Blueprint)...
+[20i] Standard Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Fetching confirmed FTP details for Package ID: 3582419...
+[20i] Confirmed FTP User: stayinsedona-1771082100254.com
+[20i] Unlocking FTP for Package ID: 3582419...
+[20i] FTP Unlock attempts may have failed.
+[Remediation] Initiating Health Check on: http://stayinsedona-1771082100254-com.stackstaging.com
+[Remediation] Site Unhealthy (403). Executing Protocol Level 1...
+[Remediation] Running Level 1 for 3582419 (http://stayinsedona-1771082100254-com.stackstaging.com)...
+[Security] UNLOCK FTP for Package 3582419 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Site Unhealthy (403). Executing Protocol Level 2...
+[Remediation] Running Level 2 for 3582419 (http://stayinsedona-1771082100254-com.stackstaging.com)...
+[Remediation] Level 2 Install Triggered: 404
+[Remediation] Site Unhealthy (403). Executing Protocol Level 3...
+[Remediation] Running Level 3 for 3582419 (http://stayinsedona-1771082100254-com.stackstaging.com)...
+[DEPLOY] Starting FTP Upload for 3582419 to ftp.stackcp.com...
+[Security] UNLOCK FTP for Package 3582419 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER stayinsedona-1771082100254.com
+< 331 Password required for stayinsedona-1771082100254.com
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582419...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER stayinsedona-1771082100254.com
+< 331 Password required for stayinsedona-1771082100254.com
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582419...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER stayinsedona-1771082100254.com
+< 331 Password required for stayinsedona-1771082100254.com
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER stayinsedona-1771082100254.com
+< 331 Password required for stayinsedona-1771082100254.com
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER stayinsedona-1771082100254.com
+< 331 Password required for stayinsedona-1771082100254.com
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:55:28)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582419 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Level 3 Injection Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:55:28)
+[Remediation] Site Unhealthy (403). Executing Protocol Level 4...
+[Remediation] Running Level 4 for 3582419 (http://stayinsedona-1771082100254-com.stackstaging.com)...
+[Remediation] FAILED after 4 levels. Final Status: 403
+[ManualShell] Provisioning Base Package for stayinsedona.com...
+[ManualShell] Failed: Error: Provision Failed: {"error":{"message":"Conflict"}}
+    at <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:84:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[20i] Fetching package types (blueprints) for reseller: *
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Starting Financial Health Check...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Running Platform Integrity Scan...
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Sentinel] Running Platform Integrity Scan...
+[20i] Fetching package types (blueprints) for reseller: *
+[Addons] Fetching 20i Additional Services...
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Antigravity] Initiating Global Orchestration for Moving Services in Phoenix, AZ...
+[Antigravity] Execution Failed: Error: No leads found matching Efficiency Vacuum criteria (No Website + Reviews > 15).
+    at Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:30:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+DEBUG: Using 20i API Key (Base64'd): Y2UzM...
+DEBUG: Provision Response: {
+  "result": 3582427
+}
+DEBUG: Waiting 5s for 20i propagation...
+[20i] Triggering One-Click WordPress Install (Blueprint: 3574679) for 3582427...
+[20i] Blueprint Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Retrying with Standard WordPress Install (No Blueprint)...
+[20i] Standard Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Fetching confirmed FTP details for Package ID: 3582427...
+[20i] Confirmed FTP User: moving-for-sport--llc.brandlift.ai
+[20i] Unlocking FTP for Package ID: 3582427...
+[20i] FTP Unlock attempts may have failed.
+[Remediation] Initiating Health Check on: http://moving-for-sport--llc-brandlift.ai.stackstaging.com
+[Remediation] Site Unhealthy (403). Executing Protocol Level 1...
+[Remediation] Running Level 1 for 3582427 (http://moving-for-sport--llc-brandlift.ai.stackstaging.com)...
+[Security] UNLOCK FTP for Package 3582427 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Site Unhealthy (403). Executing Protocol Level 2...
+[Remediation] Running Level 2 for 3582427 (http://moving-for-sport--llc-brandlift.ai.stackstaging.com)...
+[Remediation] Level 2 Install Triggered: 404
+[Remediation] Site Unhealthy (403). Executing Protocol Level 3...
+[Remediation] Running Level 3 for 3582427 (http://moving-for-sport--llc-brandlift.ai.stackstaging.com)...
+[DEPLOY] Starting FTP Upload for 3582427 to ftp.stackcp.com...
+[Security] UNLOCK FTP for Package 3582427 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582427...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582427...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:505:39)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582427 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Level 3 Injection Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:505:39)
+[Remediation] Site Unhealthy (403). Executing Protocol Level 4...
+[Remediation] Running Level 4 for 3582427 (http://moving-for-sport--llc-brandlift.ai.stackstaging.com)...
+[Remediation] FAILED after 4 levels. Final Status: 403
+[DEPLOY] Starting FTP Upload for 3582427 to ftp.stackcp.com...
+[Security] UNLOCK FTP for Package 3582427 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582427...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582427...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER moving-for-sport--llc.brandlift.ai
+< 331 Password required for moving-for-sport--llc.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:517:25)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582427 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[ORCHESTRATOR] FTP Upload Failed (Likely Locked). Activating Local Fallback. FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+[20i] Fetching package types (blueprints) for reseller: *
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Running Platform Integrity Scan...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Sentinel] Running Platform Integrity Scan...
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Addons] Fetching 20i Additional Services...
+[20i] Fetching package types (blueprints) for reseller: *
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Antigravity] Initiating Global Orchestration for Electrical in Phoenix, AZ...
+[Antigravity] Top Lead Identified: Super Electric (301 reviews, No Website)
+[Antigravity] Provisioning Infrastructure for: super-electric.brandlift.ai (Blueprint: 284870)...
+DEBUG: Using 20i API Key (Base64'd): Y2UzM...
+DEBUG: Using 20i API Key (Base64'd): Y2UzM...
+DEBUG: Provision Response: {
+  "result": 3582435
+}
+DEBUG: Waiting 5s for 20i propagation...
+[20i] Triggering One-Click WordPress Install (Blueprint: 3574679) for 3582435...
+[20i] Blueprint Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Retrying with Standard WordPress Install (No Blueprint)...
+[20i] Standard Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Fetching confirmed FTP details for Package ID: 3582435...
+[20i] Confirmed FTP User: super-electric.brandlift.ai
+[20i] Unlocking FTP for Package ID: 3582435...
+[20i] FTP Unlock attempts may have failed.
+[Remediation] Initiating Health Check on: http://super-electric-brandlift.ai.stackstaging.com
+[Remediation] Site Unhealthy (403). Executing Protocol Level 1...
+[Remediation] Running Level 1 for 3582435 (http://super-electric-brandlift.ai.stackstaging.com)...
+[Security] UNLOCK FTP for Package 3582435 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Site Unhealthy (403). Executing Protocol Level 2...
+[Remediation] Running Level 2 for 3582435 (http://super-electric-brandlift.ai.stackstaging.com)...
+[Remediation] Level 2 Install Triggered: 404
+[Remediation] Site Unhealthy (403). Executing Protocol Level 3...
+[Remediation] Running Level 3 for 3582435 (http://super-electric-brandlift.ai.stackstaging.com)...
+[DEPLOY] Starting FTP Upload for 3582435 to ftp.stackcp.com...
+[Security] UNLOCK FTP for Package 3582435 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582435...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+DEBUG: Provision Response: {
+  "result": 3582437
+}
+DEBUG: Waiting 5s for 20i propagation...
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582435...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+[20i] Triggering One-Click WordPress Install (Blueprint: 3574679) for 3582437...
+[20i] Blueprint Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Retrying with Standard WordPress Install (No Blueprint)...
+[20i] Standard Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Fetching confirmed FTP details for Package ID: 3582437...
+[20i] Confirmed FTP User: phoenix-best-electricians.brandlift.ai
+[20i] Unlocking FTP for Package ID: 3582437...
+[20i] FTP Unlock attempts may have failed.
+[Remediation] Initiating Health Check on: http://phoenix-best-electricians-brandlift.ai.stackstaging.com
+[Remediation] Site Unhealthy (403). Executing Protocol Level 1...
+[Remediation] Running Level 1 for 3582437 (http://phoenix-best-electricians-brandlift.ai.stackstaging.com)...
+[Security] UNLOCK FTP for Package 3582437 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[Remediation] Site Unhealthy (403). Executing Protocol Level 2...
+[Remediation] Running Level 2 for 3582437 (http://phoenix-best-electricians-brandlift.ai.stackstaging.com)...
+> QUIT
+[Remediation] Level 2 Install Triggered: 404
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+[Remediation] Site Unhealthy (403). Executing Protocol Level 3...
+[Remediation] Running Level 3 for 3582437 (http://phoenix-best-electricians-brandlift.ai.stackstaging.com)...
+[DEPLOY] Starting FTP Upload for 3582437 to ftp.stackcp.com...
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+[Security] UNLOCK FTP for Package 3582437 (IP: 143.105.159.62)...
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:45:33)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582435 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Level 3 Injection Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:45:33)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582437...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+[Remediation] Site Unhealthy (403). Executing Protocol Level 4...
+[Remediation] Running Level 4 for 3582435 (http://super-electric-brandlift.ai.stackstaging.com)...
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582437...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+[Remediation] FAILED after 4 levels. Final Status: 403
+[Antigravity] Infrastructure Active. Status: undefined
+[Antigravity] Analyzed 5 Competitors.
+[Antigravity] Projected Monthly Recoverable Revenue: $1400
+[Antigravity] Injecting Competitive Data into /growth-blueprint...
+[DEPLOY] Starting FTP Upload for 3582435 to ftp.stackcp.com...
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+[Security] UNLOCK FTP for Package 3582435 (IP: 143.105.159.62)...
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582435...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582435...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:505:39)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582437 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Level 3 Injection Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:505:39)
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[Remediation] Site Unhealthy (403). Executing Protocol Level 4...
+[Remediation] Running Level 4 for 3582437 (http://phoenix-best-electricians-brandlift.ai.stackstaging.com)...
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+[Remediation] FAILED after 4 levels. Final Status: 403
+[DEPLOY] Starting FTP Upload for 3582437 to ftp.stackcp.com...
+[Security] UNLOCK FTP for Package 3582437 (IP: 143.105.159.62)...
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric.brandlift.ai
+< 331 Password required for super-electric.brandlift.ai
+
+> PASS ###
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:72:13)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+Connected to 45.8.227.140:21 (No encryption)
+[Security] LOCK FTP for Package 3582435 (IP: 143.105.159.62)...
+< 220 FTP server ready
+
+> AUTH TLS
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[Antigravity] Execution Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:72:13)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582437...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582437...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER phoenix-best-electricians.brandlift.ai
+< 331 Password required for phoenix-best-electricians.brandlift.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:517:25)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582437 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[ORCHESTRATOR] FTP Upload Failed (Likely Locked). Activating Local Fallback. FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+[20i] Fetching package types (blueprints) for reseller: *
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Running Platform Integrity Scan...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Sentinel] Running Platform Integrity Scan...
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[20i] Fetching package types (blueprints) for reseller: *
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Running Platform Integrity Scan...
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Antigravity] Initiating Global Orchestration for Electrical in Phoenix, AZ...
+[Antigravity] Top Lead Identified: Super Electric (301 reviews, No Website)
+[Antigravity] Provisioning Infrastructure for: super-electric.brandlift.ai (Blueprint: 284870)...
+DEBUG: Using 20i API Key (Base64'd): Y2UzM...
+[20i] Conflict handling: Found stale package for super-electric.brandlift.ai. Cleaning up...
+[20i] Deleting stale package ID: 3582435...
+[20i] Deletion command sent. Polling for removal (max 20s)...
+[20i] Package still exists (1/4). Waiting...
+[20i] Package still exists (2/4). Waiting...
+[20i] Package still exists (3/4). Waiting...
+[20i] Package still exists (4/4). Waiting...
+[20i] Cleanup failed or timed out. Switching to unique sandbox domain.
+[20i] Provisioning fallback domain (Conflict): super-electric-brandlift-1771083668038.ai
+DEBUG: Using 20i API Key (Base64'd): Y2UzM...
+DEBUG: Provision Response: {
+  "result": 3582451
+}
+DEBUG: Waiting 5s for 20i propagation...
+[20i] Triggering One-Click WordPress Install (Blueprint: 3574679) for 3582451...
+[20i] Blueprint Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Retrying with Standard WordPress Install (No Blueprint)...
+[20i] Standard Install Failed: {"error":{"code":null,"message":"No route handler for /1clk/WordPress on Web"}}
+[20i] Fetching confirmed FTP details for Package ID: 3582451...
+[20i] Confirmed FTP User: super-electric-brandlift-1771083668038.ai
+[20i] Unlocking FTP for Package ID: 3582451...
+[20i] FTP Unlock attempts may have failed.
+[Remediation] Initiating Health Check on: http://super-electric-brandlift-1771083668038-ai.stackstaging.com
+[Remediation] Site Unhealthy (403). Executing Protocol Level 1...
+[Remediation] Running Level 1 for 3582451 (http://super-electric-brandlift-1771083668038-ai.stackstaging.com)...
+[Security] UNLOCK FTP for Package 3582451 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Site Unhealthy (403). Executing Protocol Level 2...
+[Remediation] Running Level 2 for 3582451 (http://super-electric-brandlift-1771083668038-ai.stackstaging.com)...
+[Remediation] Level 2 Install Triggered: 404
+[Remediation] Site Unhealthy (403). Executing Protocol Level 3...
+[Remediation] Running Level 3 for 3582451 (http://super-electric-brandlift-1771083668038-ai.stackstaging.com)...
+[DEPLOY] Starting FTP Upload for 3582451 to ftp.stackcp.com...
+[Security] UNLOCK FTP for Package 3582451 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582451...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582451...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:45:33)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582451 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[Remediation] Level 3 Injection Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.runGlobalRemediation (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:2086:17)
+    at async Object.provisionSandbox (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:439:25)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:45:33)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+[Remediation] Site Unhealthy (403). Executing Protocol Level 4...
+[Remediation] Running Level 4 for 3582451 (http://super-electric-brandlift-1771083668038-ai.stackstaging.com)...
+[Remediation] FAILED after 4 levels. Final Status: 403
+[Antigravity] Infrastructure Active. Status: undefined
+[Antigravity] Analyzed 5 Competitors.
+[Antigravity] Projected Monthly Recoverable Revenue: $1400
+[Antigravity] Injecting Competitive Data into /growth-blueprint...
+[DEPLOY] Starting FTP Upload for 3582451 to ftp.stackcp.com...
+[Security] UNLOCK FTP for Package 3582451 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated unlock not supported by this API tier/endpoint. Manual check recommended.
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 1 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582451...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 2 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+[DEPLOY] Detected Auth Failure. Forcing Password Reset...
+[Security] Forcing FTP Password Reset for 3582451...
+[Security] Password Reset Failed: {"error":{"code":null,"message":"No route handler for /ftp/password on Web"}}
+> QUIT
+Connected to 45.8.227.140:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 3 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 4 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+> QUIT
+Connected to 45.8.227.141:21 (No encryption)
+< 220 FTP server ready
+
+> AUTH TLS
+< 234 AUTH TLS successful
+
+Control socket is using: TLSv1.2
+> OPTS UTF8 ON
+< 200 UTF8 set to on
+
+Login security: TLSv1.2
+> USER super-electric-brandlift-1771083668038.ai
+< 331 Password required for super-electric-brandlift-1771083668038.ai
+
+> PASS ###
+< 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+
+[DEPLOY] Connection attempt 5 failed: 530 Login failed: please verify the username and password supplied, and that FTP locking is either disabled or permitted for your current IP address
+FTP Deployment Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:72:13)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+> QUIT
+[DEPLOY] Re-locking FTP access...
+[Security] LOCK FTP for Package 3582451 (IP: 143.105.159.62)...
+[Security] Standard endpoint 404. Trying alternative path...
+[Security] Automated lock not supported by this API tier/endpoint. Manual check recommended.
+[Antigravity] Execution Failed: Error: FTP Connection Failed after 5 attempts (including password reset). Check 20i Dashboard.
+    at Object.uploadVariantContent (/Users/braddoern/Downloads/brandlift-command-center/services/twentyiService.ts:730:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Object.executeGlobalOrchestration (/Users/braddoern/Downloads/brandlift-command-center/services/antigravityService.ts:72:13)
+    at async <anonymous> (/Users/braddoern/Downloads/brandlift-command-center/server.ts:28:24)
+[20i] Fetching package types (blueprints) for reseller: *
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[CX] Fetching StackCP features for Tier Basic...
+[HostShop] Syncing Product Catalog...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[20i] Fetching package types (blueprints) for reseller: *
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[CX] Fetching StackCP features for Tier Basic...
+[HostShop] Syncing Product Catalog...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[Addons] Fetching 20i Additional Services...
+[20i] Fetching package types (blueprints) for reseller: *
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[CX] Fetching StackCP features for Tier Basic...
+[HostShop] Syncing Product Catalog...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[Addons] Fetching 20i Additional Services...
+[20i] Fetching package types (blueprints) for reseller: *
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[CX] Fetching StackCP features for Tier Basic...
+[HostShop] Syncing Product Catalog...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[Addons] Fetching 20i Additional Services...
+[Addons] Fetching 20i Additional Services...
+[Addons] Fetching 20i Additional Services...
+[Addons] Fetching 20i Additional Services...
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[20i] Fetching package types (blueprints) for reseller: *
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Running Platform Integrity Scan...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Starting Financial Health Check...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Sentinel] Running Platform Integrity Scan...
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[20i] Fetching package types (blueprints) for reseller: *
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Sentinel] Flagged Beta Industries as AT RISK. 7-Day Warning Email Sent.
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Domains] Generating recommendations for BrandLift...
+[Domains] Searching for: brandlift.com
+[Domains] Searching for: getbrandlift.com
+[Domains] Searching for: brandlift.io
+[Domains] Searching for: brandlift.co
+[Domains] Searching for: brandliftapp.com
+[CX] Fetching StackCP features for Tier Basic...
+[Sentinel] Running Platform Integrity Scan...
+[Addons] Fetching 20i Additional Services...
+[HostShop] Syncing Product Catalog...
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Running Platform Integrity Scan...
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[Addons] Fetching 20i Additional Services...
+[20i] Fetching package types (blueprints) for reseller: *
+[Addons] Fetching 20i Additional Services...
+[Addons] Fetching 20i Additional Services...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[Sentinel] Running Platform Integrity Scan...
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.
+[20i] Fetching package types (blueprints) for reseller: *
+[20i] direct packageType endpoint 404. Attempting fallback...
+[20i] Blueprint fetch failed (Error: API 404). Returning cached defaults.

@@ -18,7 +18,7 @@ export const LeadEnrichmentView: React.FC<LeadEnrichmentViewProps> = ({ onReimag
         industry: 'HVAC',
         state: 'AZ',
         city: 'Phoenix',
-        noWebsiteOnly: true,
+        websiteStatus: 'no_website',
         deepScan: false,
         maxResults: 10,
     });
@@ -88,12 +88,9 @@ export const LeadEnrichmentView: React.FC<LeadEnrichmentViewProps> = ({ onReimag
     };
 
     return (
-        // Using min-h-[calc(100vh-theme(spacing.16))] or similar to fit within the dashboard layout if needed.
-        // The original App.tsx had min-h-screen. We might want to adjust for the main app container.
-        // We'll keep the flex layout.
-        <div className="font-sans bg-deep-charcoal text-white flex flex-col md:flex-row h-full overflow-hidden">
-            <LeadFilters filters={filters} setFilters={setFilters} onSearch={fetchLeads} />
-            <main className="flex-1 p-4 md:p-8 overflow-auto h-full">
+        <div className="flex flex-col md:flex-row h-full overflow-hidden bg-slate-950 relative">
+            <LeadFilters filters={filters} setFilters={setFilters} onSearch={fetchLeads} isLoading={isLoading} />
+            <main className="flex-1 p-4 md:p-6 overflow-hidden flex flex-col h-full relative z-10">
                 <LeadResultFeed
                     leads={leads}
                     isLoading={isLoading}
