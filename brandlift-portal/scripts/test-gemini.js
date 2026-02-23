@@ -13,9 +13,9 @@ async function listModels() {
         // but let's try to infer or just try to get a model and generate content to see if it works.
         // Actually, the error message from user "Call ListModels to see the list..." suggests the API supports it.
         // In Node SDK, it might be specific.
-        // Let's try to just instantiate 'gemini-1.5-flash' and run a test prompt.
+        // Let's try to just instantiate 'gemini-flash-latest' and run a test prompt.
 
-        const modelsToTest = ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-pro", "gemini-1.0-pro"];
+        const modelsToTest = ["gemini-flash-latest", "gemini-1.5-pro", "gemini-pro", "gemini-1.0-pro"];
 
         console.log("Testing models with API Key ending in ...", API_KEY.slice(-5));
 

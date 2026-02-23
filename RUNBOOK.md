@@ -194,7 +194,7 @@ The following table breaks down the marginal cost of a single "Antigravity" run 
 | Service | Operation | Unit Cost | Est. Cost / Run |
 | :--- | :--- | :--- | :--- |
 | **Google Places API** | New Text Search (Field Masked) | ~$32.00 / 1k requests | **$0.032** |
-| **Google Gemini AI** | `gemini-1.5-flash` Analysis | $0.0003 / 1k tokens | **<$0.001** |
+| **Google Gemini AI** | `gemini-flash-latest` Analysis | $0.0003 / 1k tokens | **<$0.001** |
 | **Google Custom Search** | Site verification | $5.00 / 1k (100 free/day) | **$0.00** |
 | **20i Hosting** | `provisionSandbox` (StackStaging) | Included in Reseller Sub | **$0.00** |
 | **Total** | | | **~$0.035** |
