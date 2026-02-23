@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "brandlift-c5987"
-  }
+    "default": "brandlift-c5987",
+    "staging": "brandlift-c5987"
+  },
+  "targets": {},
+  "etags": {}
 }

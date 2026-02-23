@@ -79,7 +79,7 @@ You are a specialized UI/UX Architect. Your mission is to wrap the provided Indu
 
         try {
             const response = await gemini.models.generateContent({
-                model: 'gemini-flash-latest',
+                model: 'gemini-2.5-flash',
                 contents: [{ role: 'user', parts: [{ text: prompt }] }],
                 config: {
                     responseMimeType: "application/json",
