@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "source": "brandlift-portal",
-    "public": "dist",
+    "public": "brandlift-portal/out",
     "ignore": [
       "firebase.json",
       "**/.*",
