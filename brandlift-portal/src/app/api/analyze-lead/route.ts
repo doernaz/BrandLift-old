@@ -1,4 +1,4 @@
-
+export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/firebase-admin'
 import { performComprehensiveScan } from '@/lib/server/services/gemini'
