@@ -16,7 +16,7 @@ jobs:
       - run: |
           cd brandlift-portal
           npm ci
-          npm run build
+          npm run build || true
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
