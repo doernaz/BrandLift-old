@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react';
 import type { FilterOptions } from '../../types';
 import { INDUSTRIES } from '../../constants';
-import { US_STATES, CITIES_BY_STATE } from '../../.../data/geo';
+import { US_STATES, CITIES_BY_STATE } from '../../../data/geo';
 import { BrandLiftIcon } from './icons/BrandLiftIcon';
 
 interface SidebarProps {
