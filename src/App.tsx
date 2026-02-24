@@ -172,7 +172,7 @@ export default function App() {
               className={`font-bold tracking-tight text-cyan-400 cursor-pointer transition-all ${currentApp === 'dashboard' ? 'text-2xl' : 'text-xl'}`}
               onClick={() => setCurrentApp('dashboard')}
             >
-              BrandLift<span className="text-white opacity-50 font-normal">.Command</span>
+              BrandLift<span className="text-white opacity-50 font-normal">.MISSION_CONTROL</span>
             </h1>
           </div>
         </div>
