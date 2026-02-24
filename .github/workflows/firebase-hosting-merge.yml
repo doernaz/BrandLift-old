@@ -21,3 +21,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BRANDLIFT_C5987 }}
           channelId: live
           projectId: brandlift-c5987
+          entryPoint: brandlift-portal
